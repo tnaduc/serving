@@ -373,7 +373,7 @@ Status Server::BuildAndStart(const Options& server_options) {
   if (server_options.http_port != 0) {
     if (server_options.http_port != server_options.grpc_port) {
       const string server_address =
-          "localhost:" + std::to_string(server_options.http_port);
+          "0.0.0.0:" + std::to_string(server_options.http_port);
       MonitoringConfig monitoring_config;
       if (!server_options.monitoring_config_file.empty()) {
         TF_RETURN_IF_ERROR(ParseProtoTextFile<MonitoringConfig>(
